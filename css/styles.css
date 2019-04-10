@@ -8,6 +8,7 @@ img{
 #list0, #list1, #list2, #list3, #list4{
   /* border: 1px solid transparent;
   padding: 1px; */
+
   visibility: none;
   position: absolute;
 }
@@ -50,7 +51,7 @@ button {
 
 footer {
   /* margin-top: 400px; */
-  margin: 400px auto;
+  margin: 200px auto;
   background-color: #f2f2f2;
   padding: 25px;
 }
