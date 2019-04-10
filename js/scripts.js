@@ -1,3 +1,4 @@
+var bal = 1000;
 
 function sleep(milliseconds) {
   var start = new Date().getTime();
@@ -85,31 +86,50 @@ function checkWin(col1, col2, col3){
     $("#headline").text("YOU WIN");
   }else $("#headline").text("LOSER LOSER LOSER");
 };
+function endCheck(){
+  var col1 = 0;
+  var col2 = 1;
+  var col3 = 2;
+  var time0 = 12300;
+  var timeA = 12950;
+  var timeB = 13760;
+
+
+    setTimeout(function(){
+      col1 = freeze();
+    }, time0)
+    setTimeout(function(){
+      col2 = freezeA();
+    }, timeA)
+    setTimeout(function(){
+      col3 = freezeB();
+    }, timeB)
+    setTimeout(function(){
+      checkWin(col1, col2, col3);
+    }, 15000)
+
+    $("#instantSpin").click(function(){
+      col1 = freeze();
+      col2 = freezeA();
+      col3 = freezeB();
+      checkWin(col1, col2, col3);
+    });
+
+};
 
 $(function() {
+
   $("#spinButton").click(function() {
+    $("#bal").text(" BAL: " + bal);
+    $("#instantSpin").show();
     $("ul#list0").hide();
     $("ul#alist0").hide();
     $("ul#blist0").hide();
     $("#headline").empty();
-  var arr = ["img1", "img2","img3","img4", "img5"];
     $("ul").empty();
-  spin();
-var col1 = 0;
-var col2 = 1;
-var col3 = 2;
-  setTimeout(function(){
-    col1 = freeze();
-  }, 12300)
-  setTimeout(function(){
-    col2 = freezeA();
-  }, 12950)
-  setTimeout(function(){
-    col3 = freezeB();
-  }, 13760)
-  setTimeout(function(){
-    checkWin(col1, col2, col3);
-  }, 15000)
+    spin();
+    endCheck();
+
 
 
   });

@@ -24,6 +24,9 @@ img{
   visibility: none;
   position: absolute;
 }
+#instantSpin {
+  display: none;
+}
 #headline {
   font-size: 50px;
   text-align: center;
