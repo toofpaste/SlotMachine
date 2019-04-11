@@ -1,34 +1,47 @@
+var num = 0;
+var betTotal = 0;
 function bet(){
-  var num = 0;
+
+
   $("#printBet").text("NO BET");
   $("#plus1").click(function(){
-    num++;
-    $("#printBet").text("BET: $" + num);
+    $("#spinButton").show();
+    num=1;
+    betTotal+=1
+    $("#printBet").text("BET: $" + betTotal);
+    takeMoney(num, betTotal);
   })
 
   $("#plus5").click(function(){
-    num+=5;
-    $("#printBet").text("BET: $" + num);
-
-
+    $("#spinButton").show();
+    num=5;
+    betTotal+=5
+    $("#printBet").text("BET: $" + betTotal);
+    takeMoney(num, betTotal);
   })
+
   $("#plus10").click(function(){
-    num+=10;
-    $("#printBet").text("BET: $" + num);
-
-
+    $("#spinButton").show();
+    num=10;
+    betTotal+=10
+    $("#printBet").text("BET: $" + betTotal);
+    takeMoney(num, betTotal);
   })
+
   $("#plus50").click(function(){
-    num+=50;
-    $("#printBet").text("BET: $" + num);
-
-
+    $("#spinButton").show();
+    num=50;
+    betTotal+=50
+    $("#printBet").text("BET: $" + betTotal);
+    takeMoney(num, betTotal);
   })
+
   $("#plus100").click(function(){
-    num+=100;
-    $("#printBet").text("BET: $" + num);
-
-
+    $("#spinButton").show();
+    num=100;
+    betTotal+=100
+    $("#printBet").text("BET: $" + betTotal);
+    takeMoney(num, betTotal);
   })
 }
 
@@ -104,15 +117,17 @@ function freezeB(){
 };
 
 
-function checkWin(col1, col2, col3){
+function checkWin(col1, col2, col3, betAmount){
   if(col1 === col2 && col2 === col3 && col1 === col3){
-    $("#headline").text("YOU WIN");
+    $("#headline").text("YOU WIN: $" + (betAmount * 25));
+    account.balance += (betAmount*25);
   }else $("#headline").text("LOSER LOSER LOSER");
 };
+var col1 = 0;
+var col2 = 1;
+var col3 = 2;
 function endCheck(){
-  var col1 = 0;
-  var col2 = 1;
-  var col3 = 2;
+
   var time0 = 12300;
   var timeA = 12950;
   var timeB = 13760;
@@ -127,26 +142,33 @@ function endCheck(){
     setTimeout(function(){
       col3 = freezeB();
     }, timeB)
-    setTimeout(function(){
-      checkWin(col1, col2, col3);
-    }, 15000)
-
-    $("#instantSpin").click(function(){
-      col1 = freeze();
-      col2 = freezeA();
-      col3 = freezeB();
-      checkWin(col1, col2, col3);
-    });
-
+    // setTimeout(function(){
+    //   checkWin(col1, col2, col3);
+    // }, 15000)
 };
 
+function takeMoney(betAmount, betTotal){
+  account.balance -= betAmount;
+  $("#bal").text(account.balance);
+  setTimeout(function(){
+    $("#plus1").show();
+    $("#plus5").show();
+    $("#plus10").show();
+    $("#plus50").show();
+    $("#plus100").show();
+
+    checkWin(col1, col2, col3, betTotal);
+  }, 19000)
+}
+
+
+var account = {
+  balance: 1000
+};
 $(function() {
   bet();
-  var account = {
-    balance: 1000
-  };
   $("#spinButton").click(function() {
-    $("#instantSpin").show();
+    $("button").hide();
     $("ul#list0").hide();
     $("ul#alist0").hide();
     $("ul#blist0").hide();
@@ -154,6 +176,11 @@ $(function() {
     $("ul").empty();
     spin();
     endCheck();
+    setTimeout(function(){
+      bet = 0;
+      betTotal = 0;
+    }, 10000)
+
 
 
 
