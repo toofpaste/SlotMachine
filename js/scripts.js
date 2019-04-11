@@ -1,4 +1,36 @@
+function bet(){
+  var num = 0;
+  $("#printBet").text("NO BET");
+  $("#plus1").click(function(){
+    num++;
+    $("#printBet").text("BET: $" + num);
+  })
 
+  $("#plus5").click(function(){
+    num+=5;
+    $("#printBet").text("BET: $" + num);
+
+
+  })
+  $("#plus10").click(function(){
+    num+=10;
+    $("#printBet").text("BET: $" + num);
+
+
+  })
+  $("#plus50").click(function(){
+    num+=50;
+    $("#printBet").text("BET: $" + num);
+
+
+  })
+  $("#plus100").click(function(){
+    num+=100;
+    $("#printBet").text("BET: $" + num);
+
+
+  })
+}
 
 function print(i){
   $("ul#list0").html("<li><img src = 'img/"+ (i) + ".png' alt = ''></li>");
@@ -109,7 +141,7 @@ function endCheck(){
 };
 
 $(function() {
-
+  bet();
   var account = {
     balance: 1000
   };
