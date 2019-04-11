@@ -57,14 +57,59 @@ footer {
   margin: 200px auto;
   background-color: #f2f2f2;
   padding: 25px;
+
+}
+#imgButtons{
+  display: flex;
 }
 
-/* .item {
-  background-size: contain;
-  margin: 0px;
-  max-height: 300px;
-  max-width: 300px;
-  min-height: 300px;
-  min-width: 300px;
-  padding: 0px;
-} */
+#imgButtons img {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+justify-content: space-around;
+}
+
+.container button {
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+justify-content: space-around;
+font-size: 20px;
+text-align: center;
+}
+
+#button1{
+  position: absolute;
+  color: black;
+  font-size: 3em;
+  opacity: .7;
+}
+
+#button2{
+  position: absolute;
+  color: black;
+  font-size: 3em;
+  opacity: .7;
+}
+
+#button3{
+  position: absolute;
+  color: black;
+  font-size: 3em;
+  opacity: .7;
+}
+
+#button4{
+  position: absolute;
+  color: black;
+  font-size: 3em;
+  opacity: .7;
+}
+
+#button5{
+  position: absolute;
+  color: black;
+  font-size: 3em;
+  opacity: .7;
+}

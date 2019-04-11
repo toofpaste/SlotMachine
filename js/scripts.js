@@ -1,13 +1,4 @@
-var bal = 1000;
 
-function sleep(milliseconds) {
-  var start = new Date().getTime();
-  for (var i = 0; i < 1e7; i++) {
-    if ((new Date().getTime() - start) > milliseconds){
-      break;
-    }
-  }
-}
 
 function print(i){
   $("ul#list0").html("<li><img src = 'img/"+ (i) + ".png' alt = ''></li>");
@@ -63,7 +54,7 @@ function spin(){
 
 function freeze(){
   var col1 = Math.floor(Math.random() * 4) + 1;
-  $("ul#list0").html("<li><img src = 'img/"+ (col1) + ".png' alt = ''></li>");
+  $("ul#list0").html("<li><img  src = 'img/"+ (col1) + ".png' alt = ''></li>");
   $("ul#list0").fadeIn(1000);
   return col1;
 };
@@ -119,8 +110,10 @@ function endCheck(){
 
 $(function() {
 
+  var account = {
+    balance: 1000
+  };
   $("#spinButton").click(function() {
-    $("#bal").text(" BAL: " + bal);
     $("#instantSpin").show();
     $("ul#list0").hide();
     $("ul#alist0").hide();
